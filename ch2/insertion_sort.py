@@ -46,6 +46,16 @@ def insertion_sort_in_place3(input):
         input[j+1] = key
 
 
+def insertion_sort_in_place_nonincreasing(input):
+    for i in range(1, len(input)):
+        key = input[i]
+        j = i - 1
+        while j >= 0 and input[j] < key:
+            input[j+1] = input[j]
+            j = j - 1
+        input[j+1] = key
+
+
 if __name__ == "__main__":
     print(insertion_sort(input))
     input2 = input.copy()
@@ -53,7 +63,9 @@ if __name__ == "__main__":
     input4 = input.copy()
     insertion_sort_in_place(input2)
     print(input2)
-    insertion_sort_in_place(input3)
+    insertion_sort_in_place2(input3)
     print(input3)
-    insertion_sort_in_place(input4)
+    insertion_sort_in_place3(input4)
+    print(input4)
+    insertion_sort_in_place_nonincreasing(input4)
     print(input4)
